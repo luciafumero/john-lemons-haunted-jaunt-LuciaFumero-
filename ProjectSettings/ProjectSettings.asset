@@ -705,6 +705,7 @@ PlayerSettings:
     QNX: UNITY_POST_PROCESSING_STACK_V2
     Stadia: UNITY_POST_PROCESSING_STACK_V2
     Standalone: UNITY_POST_PROCESSING_STACK_V2
+    VisionOS: UNITY_POST_PROCESSING_STACK_V2
     WebGL: UNITY_POST_PROCESSING_STACK_V2
     Windows Store Apps: UNITY_POST_PROCESSING_STACK_V2
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
@@ -819,7 +820,7 @@ PlayerSettings:
   cloudProjectId: d5222d44-130d-4a0a-a0e9-59949c3c4703
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
+  projectName: "John Lemon\xB4s Haunted Jaunt"
   organizationId: luciarealfumero
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
