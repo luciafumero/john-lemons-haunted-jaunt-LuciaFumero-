@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Observer : MonoBehaviour
@@ -7,6 +8,13 @@ public class Observer : MonoBehaviour
     public Transform player;
     public GameEnding gameEnding;
     bool m_IsPlayerInRange;
+    public GameObject exclamation;
+    public AudioSource youWereSpotted;
+    public float fadeDuration = 1f;
+    public float displayImageDuration = 2f;
+    float m_Timer;
+    bool m_HasAudioPlayed;
+    float m_CatchingTimer;
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,6 +32,38 @@ public class Observer : MonoBehaviour
         }
     }
 
+    void Spotted(AudioSource wasSpotted, bool isSpotted)
+    {
+        m_Timer += Time.deltaTime;
+        m_CatchingTimer = 2f;
+
+        if (m_IsPlayerInRange)
+        {
+            if (isSpotted == true) 
+            {
+                GameObject.SetActive.CompareTag("Exclamation");
+                if (m_Timer > fadeDuration + displayImageDuration)
+                {
+                    wasSpotted.Play();
+                }
+            }
+        }
+        else 
+        {
+            if (!isSpotted) 
+            {
+                if (m_Timer > fadeDuration + displayImageDuration)
+                {
+                    wasSpotted.Stop();
+                }
+            }
+        }
+        if (!m_HasAudioPlayed)
+        {
+            wasSpotted.Play();
+            m_HasAudioPlayed = true;
+        }
+    }
     void Update()
     {
         if (m_IsPlayerInRange)
